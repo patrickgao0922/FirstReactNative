@@ -24,8 +24,8 @@ export default class FirstReactNative extends Component {
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-          Test
+          Cmd+D or shake for dev menu{'\n'}
+          This is the first React Native app I have ever built.
         </Text>
       </View>
     );
