@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import { View, Text, Navigation } from "react-native"
+import React, {Component, PropTypes} from 'react'
+import { View, Text, TouchableHighlight } from "react-native"
 
 export default class MyScene extends Component {
     static get defaultProps() {
@@ -10,16 +10,24 @@ export default class MyScene extends Component {
 
     render() {
         return (
-            <Navigator 
-                initialRout={{title: 'My Initial Scene', index:0}}
-                renderScene={(route, navigator) => {
-                return <MyScene title={route.title} />
-                }}
-            />
             <View>
-                <Text>Hi! My name is {this.props.title}</Text>
-            </View>
+        <Text>Current Scene: {this.props.title}</Text>
+
+        <TouchableHighlight onPress={this.props.onForward}>
+          <Text>Tap me to load the next scene</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={this.props.onBack}>
+          <Text>Tap me to go back</Text>
+        </TouchableHighlight>
+      </View>
         )
         
     }
 }
+
+MyScene.propTypes = {
+  title: PropTypes.string.isRequired,
+  onForward: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
+};

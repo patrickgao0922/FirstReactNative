@@ -18,12 +18,28 @@ import MyScene from './MyScene';
 export default class FirstReactNative extends Component {
   render() {
     return (
-      <Navigator 
-        initialRout={{title: 'My Initial Scene', index:0}}
+      <Navigator
+        initialRoute={{ title: 'My Initial Scene', index: 0 }}
         renderScene={(route, navigator) => {
-          return <MyScene title={route.title} />
-        }}
-      />
+          return <MyScene 
+                    title={route.title}
+
+                    onForward={() => {
+                      const nextIndex = route.index +1
+                      navigator.push({
+                        title: 'Scene' + nextIndex,
+                        index: nextIndex,
+                      })
+                    }}
+
+                    onBack={() => {
+                      if (route.index >0) {
+                        navigator.pop()
+                      }
+                    }}
+          />
+        } }
+        />
       // <View style={styles.container}/>
     );
   }
@@ -37,8 +53,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   cell: {
-    flex:1,
-    backgroundColor:'skyblue'
+    flex: 1,
+    backgroundColor: 'skyblue'
   },
   welcome: {
     fontSize: 20,
