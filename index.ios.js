@@ -16,17 +16,7 @@ export default class FirstReactNative extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu{'\n'}
-          This is the first React Native app I have ever built.
-        </Text>
+        <View></View>
       </View>
     );
   }
@@ -38,6 +28,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  cell: {
+    flex:1,
+    backgroundColor:'skyblue'
   },
   welcome: {
     fontSize: 20,
