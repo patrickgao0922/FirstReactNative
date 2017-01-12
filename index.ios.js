@@ -9,15 +9,22 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
+
+import MyScene from './MyScene';
 
 export default class FirstReactNative extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View></View>
-      </View>
+      <Navigator 
+        initialRout={{title: 'My Initial Scene', index:0}}
+        renderScene={(route, navigator) => {
+          return <MyScene title={route.title} />
+        }}
+      />
+      // <View style={styles.container}/>
     );
   }
 }

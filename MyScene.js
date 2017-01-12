@@ -10,6 +10,12 @@ export default class MyScene extends Component {
 
     render() {
         return (
+            <Navigator 
+                initialRout={{title: 'My Initial Scene', index:0}}
+                renderScene={(route, navigator) => {
+                return <MyScene title={route.title} />
+                }}
+            />
             <View>
                 <Text>Hi! My name is {this.props.title}</Text>
             </View>
